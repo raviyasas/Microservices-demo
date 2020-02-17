@@ -1,0 +1,17 @@
+server:
+  port: 8099
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8099}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+
+turbine:
+  appConfig: prolauncher-service, work-order-service
+  combine-host-port: true
+  cluster-name-expression: new String("default")
+  endpoints:
+    clusters:
+      enabled: true

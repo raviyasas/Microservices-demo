@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: eureka-server
+  profiles: default
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enableSelfPreservation: false
+  instance:
+    hostname: prolauncher.com
+
+---
+
+#spring:
+#  profiles: united-states
+#  application:
+#    name: eureka-server-clustered   # ==> This is Service-Id
+#server:
+#  port: 8762
+#eureka:
+#  instance:
+#    hostname: prolauncher-us.com
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://prolauncher-fr.com:8763/eureka/,http://prolauncher-vn.com:8764/eureka/
+
+---
+
+#spring:
+#  profiles: france
+#  application:
+#    name: eureka-server-clustered   # ==> This is Service-Id
+#server:
+#  port: 8763
+#eureka:
+#  instance:
+#    hostname: prolauncher-fr.com
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://prolauncher-us.com:8762/eureka/,http://prolauncher-vn.com:8764/eureka/
+
+---
+
+#spring:
+#  profiles: vietnam
+#  application:
+#    name: eureka-server-clustered    # ==> This is Service-Id
+#server:
+#  port: 8764
+#eureka:
+#  instance:
+#    hostname: prolauncher-vn.com
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://prolauncher-us.com:8762/eureka/,http://prolauncher-fr.com:8763/eureka/

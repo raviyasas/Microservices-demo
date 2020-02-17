@@ -1,0 +1,21 @@
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#  server:
+#    enableSelfPreservation: false
+#    renewalThresholdUpdateIntervalMs: 600000
+#    renewalPercentThreshold: 0.85 # default is 0.85
+#  instance:
+#    leaseRenewalIntervalInSeconds: 2
+#    registry:
+#      expectedNumberOfRenewsPerMin: 1 # default is 1 heartbeat
+
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/config
+

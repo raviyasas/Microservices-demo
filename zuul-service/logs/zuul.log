@@ -1,0 +1,6 @@
+2020-02-12 14:21:04,449 INFO com.sml.zuulservice.ZuulServiceApplication [main] No active profile set, falling back to default profiles: default
+2020-02-12 14:21:10,188 INFO com.sml.zuulservice.ZuulServiceApplication [main] Started ZuulServiceApplication in 7.853 seconds (JVM running for 9.592)
+2020-02-12 14:22:26,000 INFO com.sml.zuulservice.ZuulServiceApplication [main] No active profile set, falling back to default profiles: default
+2020-02-12 14:22:32,232 INFO com.sml.zuulservice.ZuulServiceApplication [main] Started ZuulServiceApplication in 8.168 seconds (JVM running for 9.839)
+2020-02-12 14:23:05,412 INFO com.sml.zuulservice.ZuulServiceApplication [main] The following profiles are active: default
+2020-02-12 14:23:11,526 INFO com.sml.zuulservice.ZuulServiceApplication [main] Started ZuulServiceApplication in 8.089 seconds (JVM running for 9.718)

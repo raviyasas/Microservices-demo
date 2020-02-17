@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: task-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    config:
+      uri: http://localhost:8888
+  datasource:
+    url: jdbc:h2:file:C:/temp/sml
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+#  zipkin:
+#    base-url: http://localhost:9411/
+#    enabled: true
+#    sender:
+#      type: web
+#  sleuth:
+#    sampler:
+#      probability: 1.0
+#    annotation:
+#      enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: 1234
+
+file:
+  destination:
+    path: C:\Users\RaviYasas\Desktop\files-new\
+
+jsa:
+  rabbitmq:
+    queue: jsa.queue
+
+server:
+  port: 8093
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost

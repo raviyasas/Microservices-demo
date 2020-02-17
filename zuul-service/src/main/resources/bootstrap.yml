@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: zuul-service
+  cloud:
+    config:
+      enabled: false
+  main:
+    allow-bean-definition-overriding: true
+  zipkin:
+    baseUrl: http://zipkin:9411
+  sleuth:
+    sampler:
+      percentage: 1
+sample:
+  zipkin:
+    enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+zuul:
+  routes:
+    task-service:
+      url: http://localhost:8093
+    prolauncher-service:
+      url: http://localhost:8091
+    work-order-service:
+      url: http://localhost:8090
+
+ribbon:
+  eureka:
+    enabled: false
