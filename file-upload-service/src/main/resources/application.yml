@@ -1,0 +1,14 @@
+server:
+  port: 8085
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2KB
+      file-size-threshold: 200MB
+      max-request-size: 215MB
+
+file:
+  upload:
+    dir: E:/Projects/SML/Prolauncher/FileLocation

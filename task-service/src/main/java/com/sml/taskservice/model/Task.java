@@ -3,7 +3,6 @@ package com.sml.taskservice.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.Date;

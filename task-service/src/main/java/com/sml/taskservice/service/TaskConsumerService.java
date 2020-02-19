@@ -38,12 +38,10 @@ public class TaskConsumerService {
             {
                 out.write(byteBuff, 0, bytesRead);
             }
-
             out.close();
             zipStream.closeEntry();
         }
         zipStream.close();
         System.out.println("Content length : " + content.length);
-
     }
 }
