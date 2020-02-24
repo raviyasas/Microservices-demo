@@ -1,14 +1,16 @@
 package com.sml.prolauncherservice.controller;
 
+import com.sml.prolauncherservice.model.HeartBeat;
 import com.sml.prolauncherservice.service.FileProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.stream.annotation.Output;
+import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.support.MessageBuilder;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,11 +27,15 @@ public class FileProducerController {
     @Value("${file.source.path}")
     private String fileSource;
 
-    /**
-     * Demo for RabbitMQ
-     * @param msg
-     * @return
-     */
+    @Autowired
+    @Output(Source.OUTPUT)
+    private MessageChannel messageChannel;
+
+    @PostMapping
+    public void write(@RequestBody HeartBeat heartBeat){
+        this.messageChannel.send(MessageBuilder.withPayload(heartBeat.getName()).build());
+    }
+
 //    @GetMapping("/rabbitMQ/sendMessage")
 //    public String sendMsg(@RequestParam("msg") String msg) {
 //        fileProducerService.produceMsg(msg);

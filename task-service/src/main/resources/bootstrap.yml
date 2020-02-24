@@ -3,16 +3,26 @@ spring:
     name: task-service
   main:
     allow-bean-definition-overriding: true
-  cloud:
-    config:
-      uri: http://localhost:8888
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
   datasource:
-    url: jdbc:h2:file:C:/temp/sml
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
     driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+      path: /h2
 
-#  zipkin:
+  #  zipkin:
 #    base-url: http://localhost:9411/
 #    enabled: true
 #    sender:
@@ -38,13 +48,13 @@ jsa:
     queue: jsa.queue
 
 server:
-  port: 8093
+  port: 8094
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
 
 eureka:
   client:

@@ -11,8 +11,12 @@ import java.util.stream.Stream;
 @Component
 public class WorkOrderService implements CommandLineRunner {
 
-    @Autowired
     private WorkOrderRepository workOrderRepository;
+
+    @Autowired
+    public WorkOrderService(WorkOrderRepository workOrderRepository){
+        this.workOrderRepository=workOrderRepository;
+    }
 
     /**
      * This is only for testing purposes

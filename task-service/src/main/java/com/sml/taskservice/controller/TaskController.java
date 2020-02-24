@@ -1,7 +1,6 @@
 package com.sml.taskservice.controller;
 
 import com.sml.taskservice.model.Task;
-import com.sml.taskservice.repository.TaskRepository;
 import com.sml.taskservice.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +29,6 @@ public class TaskController {
     @PostMapping("/addTask")
     public ResponseEntity<Task> addTask(@Valid @RequestBody Task task){
         taskService.addTask(task);
-        return new ResponseEntity<Task>(task, HttpStatus.OK);
+        return new ResponseEntity<>(task, HttpStatus.OK);
     }
 }

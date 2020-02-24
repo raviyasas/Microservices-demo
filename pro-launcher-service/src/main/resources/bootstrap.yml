@@ -1,9 +1,11 @@
 spring:
   application:
     name: prolauncher-service
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
   cloud:
-    config:
-      uri: http://localhost:8888
+    cloud
 
 feign:
   client:
@@ -16,3 +18,15 @@ feign:
 file:
   source:
     path: C:\Users\RaviYasas\Desktop\files\Capture.zip
+
+server:
+  port: ${PORT:0}
+
+---
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+
+
