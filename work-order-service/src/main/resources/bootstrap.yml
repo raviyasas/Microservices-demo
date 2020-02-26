@@ -13,7 +13,6 @@ spring:
     sampler:
       probability: 1
 
-
 feign:
   client:
     config:

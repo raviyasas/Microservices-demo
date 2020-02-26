@@ -18,11 +18,6 @@ public class WorkOrderService implements CommandLineRunner {
         this.workOrderRepository=workOrderRepository;
     }
 
-    /**
-     * This is only for testing purposes
-     * @param args
-     * @throws Exception
-     */
     @Override
     public void run(String... args) throws Exception {
 

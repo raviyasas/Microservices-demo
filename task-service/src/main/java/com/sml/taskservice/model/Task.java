@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Data
-//@Table(name = "tasks")
+@Table(name = "tasks")
 public class Task implements Serializable {
 
     private static final long serialVersionUID = 1L;

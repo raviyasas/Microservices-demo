@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-//@Table(name="task_user")
+@Table(name="task_user")
 public class TaskUser implements Serializable {
 
     private static final long serialVersionUID = 1L;

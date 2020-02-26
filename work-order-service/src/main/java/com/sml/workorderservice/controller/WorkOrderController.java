@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/workOrder")
 public class WorkOrderController {
 
-    @Autowired
     private ProlauncherClient prolauncherClient;
+
+    @Autowired
+    public WorkOrderController(ProlauncherClient prolauncherClient){
+        this.prolauncherClient=prolauncherClient;
+    }
 
     @HystrixCommand(fallbackMethod = "fallBackHello", commandKey = "work-order-controller", groupKey = "work-order-controller")
     @GetMapping("/fallBack")
@@ -27,21 +31,12 @@ public class WorkOrderController {
         return "Hello from work-order-service !";
     }
 
-    /**
-     * fallback hello method
-     * @return a message
-     */
     private String fallBackHello() {
         return "fallback method initiated from work order";
     }
 
-    /**
-     * Demo of Feign client
-     *
-     */
     @GetMapping("/getWorkOrder")
     public String getWorkOrder(){
         return prolauncherClient.executeWorkOrder();
     }
-
 }
