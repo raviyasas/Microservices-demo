@@ -1,0 +1,9 @@
+#eureka.client.healthcheck.enabled=true should only be set in application.yml.
+#Setting the value in bootstrap.yml causes undesirable side effects, such as registering in Eureka with an UNKNOWN status.
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      default-zone: http://localhost:8761/eureka/
